@@ -1,84 +1,86 @@
 ---
-- ticker: USDT
-  name: USD Tether
-  coingecko_id: tether
+# list of supported USD stablecoins
+# key is always coingecko id
+- tether:
+    ticker: USDT
+    name: USD Tether
 
-- ticker: USDC
-  name: USD Coin
-  coingecko_id: usd-coin
+- usd-coin:
+    ticker: USDC
+    name: USD Coin
 
-- ticker: UST
-  name: TerraUSD
-  coingecko_id: terrausd
+- terrausd:
+    ticker: UST
+    name: TerraUSD
 
-- ticker: BUSD
-  name: Binance USD
-  coingecko_id: binance-usd
+- binance-usd:
+    ticker: BUSD
+    name: Binance USD
 
-- ticker: DAI
-  name: Dai
-  coingecko_id: dai
+- dai:
+    ticker: DAI
+    name: Dai
 
-- ticker: TUSD
-  name: TrueUSD
-  coingecko_id: true-usd
+- true-usd:
+    ticker: TUSD
+    name: TrueUSD
 
-- ticker: USDN
-  name: Neutrino USD
-  coingecko_id: neutrino
+- neutrino:
+    ticker: USDN
+    name: Neutrino USD
 
-- ticker: USDP
-  name: Pax Dollar
-  coingecko_id: paxos-standard
+- paxos-standard:
+    ticker: USDP
+    name: Pax Dollar
 
-- ticker: FEI
-  name: FEI USD
-  coingecko_id: fei-usd
+- fei-usd:
+    ticker: FEI
+    name: FEI USD
 
-- ticker: FRAX
-  name: Frax
-  coingecko_id: frax
+- frax:
+    ticker: FRAX
+    name: Frax
 
-- ticker: LUSD
-  name: Liquity USD
-  coingecko_id: liquity-usd
+- liquity-usd:
+    ticker: LUSD
+    name: Liquity USD
 
-- ticker: HUSD
-  name: HUSD
-  coingecko_id: husd
+- husd:
+    ticker: HUSD
+    name: HUSD
 
-- ticker: GUSD
-  name: Gemini Dollar
-  coingecko_id: gemini-dollar
+- gemini-dollar:
+    ticker: GUSD
+    name: Gemini Dollar
 
-- ticker: USDX
-  name: USDX [Kava]
-  coingecko_id: usdx
+- usdx:
+    ticker: USDX
+    name: USDX [Kava]
 
-- ticker: SUSD
-  name: sUSD
-  coingecko_id: nusd
+- nusd:
+    ticker: SUSD
+    name: sUSD
 
-- ticker: OUSD
-  name: Origin Dollar
-  coingecko_id: origin-dollar
+- origin-dollar:
+    ticker: OUSD
+    name: Origin Dollar
 
-- ticker: CUSD
-  name: Celo Dollar
-  coingecko_id: celo-dollar
+- celo-dollar:
+    ticker: CUSD
+    name: Celo Dollar
 
-- ticker: MUSD
-  name: mStable USD
-  coingecko_id: musd
+- musd:
+    ticker: MUSD
+    name: mStable USD
 
-- ticker: RSV
-  name: Reserve
-  coingecko_id: reserve
+- reserve:
+    ticker: RSV
+    name: Reserve
 
-- ticker: MIM
-  name: Magic Internet Money
-  coingecko_id: magic-internet-money
+- magic-internet-money:
+    ticker: MIM
+    name: Magic Internet Money
 
-- ticker: ALUSD
-  name: Alchemix USD
-  coingecko_id: alchemix-usd
+- alchemix-usd:
+    ticker: ALUSD
+    name: Alchemix USD
