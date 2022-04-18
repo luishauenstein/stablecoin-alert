@@ -2,8 +2,13 @@
 import yaml
 import requests
 import redis
+import tweepy
 
-r = redis.Redis(host='localhost', port=6379, db=0)
+r = redis.Redis(host='localhost', port=6379, db=0)  # redis auth
+auth = tweepy.OAuth1UserHandler(
+    consumer_key, consumer_secret, access_token, access_token_secret
+)
+api = tweepy.API(auth)  # twitter api auth
 
 alert_threshold = 0.02  # how much price has to deviate from peg to trigger alert
 update_trigger = 0.1  # how much price has to drop further to trigger update
