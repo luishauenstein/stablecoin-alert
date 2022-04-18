@@ -1,64 +1,84 @@
 ---
-- USDT:
+- ticker: USDT
   name: USD Tether
-  coingecko_id: asdf
-- USDC:
+  coingecko_id: tether
+
+- ticker: USDC
   name: USD Coin
-  coingecko_id: asdf
-- UST:
+  coingecko_id: usd-coin
+
+- ticker: UST
   name: TerraUSD
-  coingecko_id: asdf
-- BUSD:
+  coingecko_id: terrausd
+
+- ticker: BUSD
   name: Binance USD
-  coingecko_id: asd
-- DAI:
+  coingecko_id: binance-usd
+
+- ticker: DAI
   name: Dai
-  coingecko_id: asdf
-- TUSD:
+  coingecko_id: dai
+
+- ticker: TUSD
   name: TrueUSD
-  coingecko_id: asdf
-- USDN:
+  coingecko_id: true-usd
+
+- ticker: USDN
   name: Neutrino USD
-  coingecko_id: asdf
-- USDP:
+  coingecko_id: neutrino
+
+- ticker: USDP
   name: Pax Dollar
-  coingecko_id: asdf
-- FEI:
+  coingecko_id: paxos-standard
+
+- ticker: FEI
   name: FEI USD
-  coingecko_id: asdf
-- FRAX:
+  coingecko_id: fei-usd
+
+- ticker: FRAX
   name: Frax
-  coingecko_id: asdf
-- LUSD:
+  coingecko_id: frax
+
+- ticker: LUSD
   name: Liquity USD
-  coingecko_id: asdf
-- HUSD:
+  coingecko_id: liquity-usd
+
+- ticker: HUSD
   name: HUSD
-  coingecko_id: asdf
-- GUSD:
+  coingecko_id: husd
+
+- ticker: GUSD
   name: Gemini Dollar
-  coingecko_id: asdf
-- USDX:
+  coingecko_id: gemini-dollar
+
+- ticker: USDX
   name: USDX [Kava]
-  coingecko_id: asdf
-- SUSD:
+  coingecko_id: usdx
+
+- ticker: SUSD
   name: sUSD
-  coingecko_id: asdf
-- OUSD:
+  coingecko_id: nusd
+
+- ticker: OUSD
   name: Origin Dollar
-  coingecko_id: asdf
-- CUSD:
+  coingecko_id: origin-dollar
+
+- ticker: CUSD
   name: Celo Dollar
-  coingecko_id: asdf
-- MUSD:
+  coingecko_id: celo-dollar
+
+- ticker: MUSD
   name: mStable USD
-  coingecko_id: asdf
-- RSV:
+  coingecko_id: musd
+
+- ticker: RSV
   name: Reserve
-  coingecko_id: asdf
-- MIM:
+  coingecko_id: reserve
+
+- ticker: MIM
   name: Magic Internet Money
   coingecko_id: magic-internet-money
-- ALUSD:
+
+- ticker: ALUSD
   name: Alchemix USD
   coingecko_id: alchemix-usd
