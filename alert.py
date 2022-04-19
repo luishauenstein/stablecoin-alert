@@ -1,14 +1,23 @@
 # service for regularly checking latest stablecoin prices and triggering tweet in case something has changed
+import os
+from dotenv import load_dotenv
+import tweepy
 import yaml
 import requests
 import redis
-import tweepy
 
-r = redis.Redis(host='localhost', port=6379, db=0)  # redis auth
+load_dotenv()
+API_KEY = os.getenv('API_KEY')
+API_KEY_SECRET = os.getenv('API_KEY_SECRET')
+ACCESS_TOKEN = os.getenv('ACCESS_TOKEN')
+ACCESS_TOKEN_SECRET = os.getenv('ACCESS_TOKEN_SECRET')
+
 auth = tweepy.OAuth1UserHandler(
-    consumer_key, consumer_secret, access_token, access_token_secret
+    API_KEY, API_KEY_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET
 )
 api = tweepy.API(auth)  # twitter api auth
+
+r = redis.Redis(host='localhost', port=6379, db=0)  # redis auth
 
 alert_threshold = 0.02  # how much price has to deviate from peg to trigger alert
 update_trigger = 0.1  # how much price has to drop further to trigger update
