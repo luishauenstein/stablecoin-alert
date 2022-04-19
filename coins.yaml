@@ -53,9 +53,9 @@ gemini-dollar:
   ticker: GUSD
   name: Gemini Dollar
 
-usdx:
-  ticker: USDX
-  name: USDX [Kava]
+# usdx:
+#   ticker: USDX
+#   name: USDX [Kava]
 
 nusd:
   ticker: SUSD
