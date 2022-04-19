@@ -10,13 +10,17 @@ import redis
 load_dotenv()
 API_KEY = os.getenv('API_KEY')
 API_KEY_SECRET = os.getenv('API_KEY_SECRET')
+BEARER_TOKEN = os.getenv('BEARER_TOKEN')
 ACCESS_TOKEN = os.getenv('ACCESS_TOKEN')
 ACCESS_TOKEN_SECRET = os.getenv('ACCESS_TOKEN_SECRET')
 
-auth = tweepy.OAuth1UserHandler(
-    API_KEY, API_KEY_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET
+api = tweepy.Client(
+    bearer_token=BEARER_TOKEN,
+    consumer_key=API_KEY,
+    consumer_secret=API_KEY_SECRET,
+    access_token=ACCESS_TOKEN,
+    access_token_secret=ACCESS_TOKEN_SECRET
 )
-api = tweepy.API(auth)  # twitter api auth
 
 r = redis.Redis(host='localhost', port=6379, db=0)  # redis auth
 
@@ -30,13 +34,12 @@ def tweetAlert(tweetType, key, configData, price):
     ticker = configData[key]['ticker']
     alertSymbols = '🚨' * min(math.floor(10 * abs(1 - price)) + 1, 10)
     tweetTexts = {
-        'depeg': f'{alertSymbols}\n{name} (#{ticker}) has lost its peg.\nCurrent price: {price} USD',
-        'update': f'{alertSymbols}\nPrice update: {name} (#{ticker}) price is now {price} USD.',
-        'recovery': f'{"✅" * 10}\n{name} (#{ticker}) has recovered.\nCurrent price: {price} USD',
+        'depeg': f'{alertSymbols}\n\n{name} (#{ticker}) has lost its peg.\nCurrent price: {price} USD',
+        'update': f'{alertSymbols}\n\nPrice update: {name} (#{ticker}) price is now {price} USD.',
+        'recovery': f'{"✅" * 10}\n\n{name} (#{ticker}) has recovered.\nCurrent price: {price} USD',
     }
     text = tweetTexts[tweetType]
-    print(text)
-    # tweepy.Client.create_tweet(text=text)
+    api.create_tweet(text=text)
 
 
 def main():
