@@ -67,7 +67,7 @@ def main():
 
     # iterate over each coin and trigger tweet if needed
     for key in data:
-        r.setnx(key, 1)  # set to 1 if key doesn't exist yet
+        r.setnx(key, 1)  # set to 1 in redis if key doesn't exist yet
         # read last alerted price from redis (1 if no report)
         last_alerted_price = float(r.get(key))
         price = data[key]['usd']  # get current price from coingecko api data
