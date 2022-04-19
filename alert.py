@@ -2,6 +2,7 @@
 import os
 from dotenv import load_dotenv
 import tweepy
+import math
 import yaml
 import requests
 import redis
@@ -27,11 +28,11 @@ def tweetAlert(tweetType, key, configData, price):
     # runs if stablecoin depegs
     name = configData[key]['name']
     ticker = configData[key]['ticker']
-    alertSymbols = '🚨' * 3
+    alertSymbols = '🚨' * min(math.floor(10 * abs(1 - price)) + 1, 10)
     tweetTexts = {
         'depeg': f'{alertSymbols}\n{name} (#{ticker}) has lost its peg.\nCurrent price: {price} USD',
         'update': f'{alertSymbols}\nPrice update: {name} (#{ticker}) price is now {price} USD.',
-        'recovery': f'{alertSymbols}\n{name} (#{ticker}) has recovered.\nCurrent price: {price} USD',
+        'recovery': f'{"✅" * 10}\n{name} (#{ticker}) has recovered.\nCurrent price: {price} USD',
     }
     text = tweetTexts[tweetType]
     print(text)
