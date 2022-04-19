@@ -23,22 +23,19 @@ alert_threshold = 0.02  # how much price has to deviate from peg to trigger aler
 update_trigger = 0.1  # how much price has to drop further to trigger update
 
 
-def depegAlert(key, price):
+def tweetAlert(tweetType, key, configData, price):
     # runs if stablecoin depegs
-    print(f'{key} depeg')
-    pass
-
-
-def updateAlert(key, price):
-    # runs if price of depeged stablecoin changes significantly
-    print(f'{key} update')
-    pass
-
-
-def recoveryAlert(key, price):
-    # runs if stablecoin repegs
-    print(f'{key} recovery')
-    pass
+    name = configData[key]['name']
+    ticker = configData[key]['ticker']
+    alertSymbols = '🚨' * 3
+    tweetTexts = {
+        'depeg': f'{alertSymbols}\n{name} (#{ticker}) has lost its peg.\nCurrent price: {price} USD',
+        'update': f'{alertSymbols}\nPrice update: {name} (#{ticker}) price is now {price} USD.',
+        'recovery': f'{alertSymbols}\n{name} (#{ticker}) has recovered.\nCurrent price: {price} USD',
+    }
+    text = tweetTexts[tweetType]
+    print(text)
+    # tweepy.Client.create_tweet(text=text)
 
 
 def main():
@@ -46,8 +43,7 @@ def main():
     with open("coins.yaml", "r") as stream:
         try:
             configData = yaml.safe_load(stream)
-            coingeckoIDs = set().union(*(d.keys()
-                                         for d in configData))  # list of coingecko ids
+            coingeckoIDs = [*configData]  # list of coingecko ids
         except yaml.YAMLError as exc:
             print(exc)
 
@@ -74,18 +70,19 @@ def main():
         if 1 - alert_threshold <= price <= 1 + alert_threshold:
             # logic for coins that are in peg currently
             if last_alerted_price != 1:
-                # TRIGGER RECOVERY ALERT
-                recoveryAlert(key, price)
                 r.set(key, 1)
+                tweetAlert('recovery', key, configData,
+                           price)  # recovery alert
+
         else:
             # logic for coins that are not in peg currently
             if last_alerted_price == 1:
                 r.set(key, price)
-                depegAlert(key, price)
+                tweetAlert('depeg', key, configData, price)  # depeg alert
             elif abs(price - last_alerted_price) > update_trigger:
                 r.set(key, price)
-                updateAlert(key, price)
-                pass  # TRIGGER UPDATE
+                tweetAlert('update', key, configData,
+                           price)  # price update alert
 
 
 if __name__ == "__main__":

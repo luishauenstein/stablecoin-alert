@@ -1,86 +1,86 @@
 ---
 # list of supported USD stablecoins
 # key is always coingecko id
-- tether:
-    ticker: USDT
-    name: USD Tether
+tether:
+  ticker: USDT
+  name: USD Tether
 
-- usd-coin:
-    ticker: USDC
-    name: USD Coin
+usd-coin:
+  ticker: USDC
+  name: USD Coin
 
-- terrausd:
-    ticker: UST
-    name: TerraUSD
+terrausd:
+  ticker: UST
+  name: TerraUSD
 
-- binance-usd:
-    ticker: BUSD
-    name: Binance USD
+binance-usd:
+  ticker: BUSD
+  name: Binance USD
 
-- dai:
-    ticker: DAI
-    name: Dai
+dai:
+  ticker: DAI
+  name: Dai
 
-- true-usd:
-    ticker: TUSD
-    name: TrueUSD
+true-usd:
+  ticker: TUSD
+  name: TrueUSD
 
-- neutrino:
-    ticker: USDN
-    name: Neutrino USD
+neutrino:
+  ticker: USDN
+  name: Neutrino USD
 
-- paxos-standard:
-    ticker: USDP
-    name: Pax Dollar
+paxos-standard:
+  ticker: USDP
+  name: Pax Dollar
 
-- fei-usd:
-    ticker: FEI
-    name: FEI USD
+fei-usd:
+  ticker: FEI
+  name: FEI USD
 
-- frax:
-    ticker: FRAX
-    name: Frax
+frax:
+  ticker: FRAX
+  name: Frax
 
-- liquity-usd:
-    ticker: LUSD
-    name: Liquity USD
+liquity-usd:
+  ticker: LUSD
+  name: Liquity USD
 
-- husd:
-    ticker: HUSD
-    name: HUSD
+husd:
+  ticker: HUSD
+  name: HUSD
 
-- gemini-dollar:
-    ticker: GUSD
-    name: Gemini Dollar
+gemini-dollar:
+  ticker: GUSD
+  name: Gemini Dollar
 
-- usdx:
-    ticker: USDX
-    name: USDX [Kava]
+usdx:
+  ticker: USDX
+  name: USDX [Kava]
 
-- nusd:
-    ticker: SUSD
-    name: sUSD
+nusd:
+  ticker: SUSD
+  name: sUSD
 
-- origin-dollar:
-    ticker: OUSD
-    name: Origin Dollar
+origin-dollar:
+  ticker: OUSD
+  name: Origin Dollar
 
-- celo-dollar:
-    ticker: CUSD
-    name: Celo Dollar
+celo-dollar:
+  ticker: CUSD
+  name: Celo Dollar
 
-- musd:
-    ticker: MUSD
-    name: mStable USD
+musd:
+  ticker: MUSD
+  name: mStable USD
 
-- reserve:
-    ticker: RSV
-    name: Reserve
+reserve:
+  ticker: RSV
+  name: Reserve
 
-- magic-internet-money:
-    ticker: MIM
-    name: Magic Internet Money
+magic-internet-money:
+  ticker: MIM
+  name: Magic Internet Money
 
-- alchemix-usd:
-    ticker: ALUSD
-    name: Alchemix USD
+alchemix-usd:
+  ticker: ALUSD
+  name: Alchemix USD
