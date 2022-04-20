@@ -1,6 +1,7 @@
 # script to check cached values in redis every few hours and give confirmation tweet
 
 import os
+import sys
 from dotenv import load_dotenv
 import tweepy
 import redis
@@ -30,7 +31,7 @@ def main():
     r.incr('confirm-py')  # increment key by one each time confirm.py runs
 
     # get coingecko ids from config file
-    with open("coins.yaml", "r") as stream:
+    with open(os.path.join(sys.path[0], "coins.yaml"), "r") as stream:
         try:
             configData = yaml.safe_load(stream)
             coingeckoIDs = [*configData]  # list of coingecko ids

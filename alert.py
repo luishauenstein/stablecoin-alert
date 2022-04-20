@@ -1,5 +1,6 @@
 # service for regularly checking latest stablecoin prices and triggering tweet in case something has changed
 import os
+import sys
 from dotenv import load_dotenv
 import tweepy
 import math
@@ -46,7 +47,7 @@ def main():
     r.incr('alert-py')  # increment key by one each time alert.py runs
 
     # get coingecko ids from config file
-    with open("coins.yaml", "r") as stream:
+    with open(os.path.join(sys.path[0], "coins.yaml"), "r") as stream:
         try:
             configData = yaml.safe_load(stream)
             coingeckoIDs = [*configData]  # list of coingecko ids
