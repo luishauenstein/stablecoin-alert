@@ -6,6 +6,8 @@ from dotenv import load_dotenv
 import tweepy
 import redis
 import yaml
+import time
+from datetime import datetime
 
 load_dotenv()
 API_KEY = os.getenv('API_KEY')
@@ -41,8 +43,14 @@ def main():
         if not 1 - alert_threshold <= float(r.get(i)) <= 1 + alert_threshold:
             return 0
         pass
+    # get time since last depeg
+    current = datetime.utcfromtimestamp(int(float(time.time())))
+    past = datetime.utcfromtimestamp(int(float(r.get('timestamp'))))
+    diff = current - past
+    time_passed_output = f'{diff.days} day{"s" if diff.days != 1 else ""} and {diff.seconds // 3600} hour{"s" if diff.seconds // 3600 != 1 else ""}'
+    # tweet
     api.create_tweet(
-        text=f'{"✅" * 10}\n\nNo special events.\nAll stablecoins maintaining peg currently.')
+        text=f'{"✅" * 3}\n\nNo special events.\nAll stablecoins are maintaining peg currently.\n(Time since last depeg: {time_passed_output})')
 
 
 if __name__ == "__main__":

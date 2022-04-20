@@ -7,6 +7,7 @@ import math
 import yaml
 import requests
 import redis
+import time
 
 load_dotenv()
 API_KEY = os.getenv('API_KEY')
@@ -83,6 +84,7 @@ def main():
 
         else:
             # logic for coins that are not in peg currently
+            r.set('timestamp', time.time())  # update timestamp of last depeg
             if last_alerted_price == 1:
                 r.set(key, price)
                 tweetAlert('depeg', key, configData, price)  # depeg alert
