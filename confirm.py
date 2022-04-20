@@ -27,6 +27,8 @@ alert_threshold = 0.02  # how much price has to deviate from peg to trigger aler
 
 
 def main():
+    r.incr('confirm-py')  # increment key by one each time confirm.py runs
+
     # get coingecko ids from config file
     with open("coins.yaml", "r") as stream:
         try:

@@ -43,6 +43,8 @@ def tweetAlert(tweetType, key, configData, price):
 
 
 def main():
+    r.incr('alert-py')  # increment key by one each time alert.py runs
+
     # get coingecko ids from config file
     with open("coins.yaml", "r") as stream:
         try:
